@@ -232,6 +232,20 @@ All future workspaces launched will set the env vars for all bash terminals open
 You can also set en vars in the ```.gitpod.yml``` but this can only contain non-senstive env vars.
 
 ## AWS CLI Installation
+
+The AWS Command Line Interface (CLI) allows you to interact with Amazon Web Services (AWS) services from the command line. 
+
+In order to install, we can follow the below official documentation:
+
+[Install or update the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+We can check if our AWS credentials are configured correctly by running the following command:
+
+```sh
+aws sts get-caller-identity
+```
+[Environment variables to configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
 ## Terraform Basics
 ### Terraform Registry
 ### Terraform Console
