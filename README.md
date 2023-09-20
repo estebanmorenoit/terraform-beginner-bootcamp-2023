@@ -112,9 +112,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Esteban Moreno - morenoramirezesteban@gmail.com
+LinkedIn: [https://www.linkedin.com/in/estebanmorenoramirez/](https://www.linkedin.com/in/estebanmorenoramirez/)
 
 Project Link: [https://github.com/estebanmorenoit/terraform-beginner-bootcamp-2023](https://github.com/estebanmorenoit/terraform-beginner-bootcamp-2023)
+
+Esteban Moreno - [morenoramirezesteban@gmail.com](morenoramirezesteban@gmail.com)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
