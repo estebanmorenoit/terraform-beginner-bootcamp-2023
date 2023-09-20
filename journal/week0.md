@@ -247,13 +247,69 @@ aws sts get-caller-identity
 [Environment variables to configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
 ## Terraform Basics
+
 ### Terraform Registry
+
+The Terraform Registry is an interactive resource for discovering a wide selection of integrations (providers), configuration packages (modules), and security rules (policies) for use with Terraform. The Registry includes solutions developed by HashiCorp, third-party vendors, and our Terraform community.
+
+[https://developer.hashicorp.com/terraform/registry](https://developer.hashicorp.com/terraform/registry)
+
 ### Terraform Console
+
+The command line interface to Terraform is the terraform command, which accepts a variety of subcommands such as `terraform init` or `terraform plan`
+
+[https://developer.hashicorp.com/terraform/cli/commands](https://developer.hashicorp.com/terraform/cli/commands)
+
 #### Terraform Init
+
+The `terraform init` command initializes a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. It is safe to run this command multiple times.
+
+[https://developer.hashicorp.com/terraform/cli/commands/init](https://developer.hashicorp.com/terraform/cli/commands/init)
+
 #### Terraform Plan
+
+The `terraform plan` command creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure. By default, when Terraform creates a plan it:
+
+- Reads the current state of any already-existing remote objects to make sure that the Terraform state is up-to-date.
+- Compares the current configuration to the prior state and noting any differences.
+- Proposes a set of change actions that should, if applied, make the remote objects match the configuration.
+
+[https://developer.hashicorp.com/terraform/cli/commands/plan](https://developer.hashicorp.com/terraform/cli/commands/plan)
+
 #### Terraform Apply
+
+The `terraform apply` command executes the actions proposed in a Terraform plan.
+
+[https://developer.hashicorp.com/terraform/cli/commands/apply](https://developer.hashicorp.com/terraform/cli/commands/apply)
+
 #### Terraform Destroy
+
+The `terraform destroy` command is a convenient way to destroy all remote objects managed by a particular Terraform configuration.
+
+[https://developer.hashicorp.com/terraform/cli/commands/destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy)
+
 #### Terraform Lock Files
-#### Terraform State Files
+
+Terraform generates lock files to prevent concurrent modifications to state files by multiple users. These lock files ensure that only one user can apply changes to the infrastructure at a time, preventing conflicts and inconsistencies.
+
+[https://developer.hashicorp.com/terraform/language/files/dependency-lock](https://developer.hashicorp.com/terraform/language/files/dependency-lock)
+
+#### Terraform State 
+
+Terraform must store state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to your configuration, keep track of metadata, and to improve performance for large infrastructures.
+
+This state is stored by default in a local file named "terraform.tfstate", but we recommend storing it in Terraform Cloud to version, encrypt, and securely share it with your team.
+
+[https://developer.hashicorp.com/terraform/language/state](https://developer.hashicorp.com/terraform/language/state)
+
 #### Terraform Directory
+
+A Terraform working directory typically contains:
+
+- A Terraform configuration describing resources Terraform should manage. This configuration is expected to change over time.
+- A hidden `.terraform` directory, which Terraform uses to manage cached provider plugins and modules, record which workspace is currently active, and record the last known backend configuration in case it needs to migrate state on the next run. This directory is automatically managed by Terraform, and is created during initialization.
+- State data, if the configuration uses the default `local` backend. This is managed by Terraform in a `terraform.tfstate` file (if the directory only uses the default workspace) or a `terraform.tfstate.d` directory (if the directory uses multiple workspaces).
+
+[https://developer.hashicorp.com/terraform/cli/init](https://developer.hashicorp.com/terraform/cli/init)
+
 ## Issues with Terraform Cloud Login and Gitpod Workspace
