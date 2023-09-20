@@ -35,7 +35,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-  <h3 align="center">Esteban Moreno - # Terraform Beginner Bootcamp 2023</h3>
+  <h3 align="center">Esteban Moreno - Terraform Beginner Bootcamp 2023</h3>
 
   <p align="center">
     This repository is a platform to document my participation in the Terraform Beginner Bootcamp 2023 project. This bootcamp is a focused program designed to facilitate learning and skill-building in Terraform, targeted at newcomers in the field.
