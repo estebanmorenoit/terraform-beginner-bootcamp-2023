@@ -136,15 +136,15 @@ Email Address - [morenoramirezesteban@gmail.com](mailto:morenoramirezesteban@gma
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/estebanmorenoit/estebanmoreno-portfolio.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/estebanmorenoit/terraform-beginner-bootcamp-2023.svg?style=for-the-badge
 [contributors-url]: https://github.com/estebanmorenoit/terraform-beginner-bootcamp-2023/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/estebanmorenoit/estebanmoreno-portfolio.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/estebanmorenoit/terraform-beginner-bootcamp-2023.svg?style=for-the-badge
 [forks-url]: https://github.com/estebanmorenoit/terraform-beginner-bootcamp-2023/forks
-[stars-shield]: https://img.shields.io/github/stars/estebanmorenoit/estebanmoreno-portfolio.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/estebanmorenoit/terraform-beginner-bootcamp-2023.svg?style=for-the-badge
 [stars-url]: https://github.com/estebanmorenoit/terraform-beginner-bootcamp-2023/stargazers
-[issues-shield]: https://img.shields.io/github/issues/estebanmorenoit/estebanmoreno-portfolio.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/estebanmorenoit/terraform-beginner-bootcamp-2023.svg?style=for-the-badge
 [issues-url]: https://github.com/estebanmorenoit/terraform-beginner-bootcamp-2023/issues
-[license-shield]: https://img.shields.io/github/license/estebanmorenoit/90daysofdevops.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/estebanmorenoit/terraform-beginner-bootcamp-2023.svg?style=for-the-badge
 [license-url]: https://github.com/estebanmorenoit/terraform-beginner-bootcamp-2023/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/estebanmorenoramirez/
