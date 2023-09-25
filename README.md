@@ -54,23 +54,14 @@
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li><a href="#weekly-journals">Weekly Journals</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
+## Table of Contents
 
-
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Weekly Journals](#weekly-journals)
+- [Roadmap](#roadmap)
+- [License](#license)
+- [Contact](#contact)
 
 
 <!-- ABOUT THE PROJECT -->
@@ -99,11 +90,12 @@ The "Terraform Beginner Bootcamp 2023" is a 2-week intensive program that offers
 
 - [Week 0 Journal](journal/week0.md)
 - [Week 1 Journal](journal/week1.md)
+- [Week 2 Journal](journal/week2.md)
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Week 0
+- [x] Week 0
 - [ ] Week 1
 - [ ] Week 2
 
