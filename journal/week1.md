@@ -12,6 +12,9 @@
   - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
     - [Fix Missing Resources with Terraform Import](#fix-missing-resources-with-terraform-import)
     - [Fix Manual Configuration](#fix-manual-configuration)
+    - [Fix using Terraform Refresh](#fix-using-terraform-refresh)
+  - [Terraform Modules](#terraform-modules)
+    - [Modules Sources](#modules-sources)
 
 
 ## Root Module Structure
@@ -111,3 +114,12 @@ To manage existing resources not originally under Terraform control, use the `te
 
 If you manually modify Terraform-managed resources, adjust your configuration to match the changes, use `terraform plan` to identify updates, and apply the changes with `terraform apply`. 
 
+### Fix using Terraform Refresh
+
+## Terraform Modules
+
+### Terraform Module Structure
+
+### Passing Input Variables
+
+### Modules Sources
