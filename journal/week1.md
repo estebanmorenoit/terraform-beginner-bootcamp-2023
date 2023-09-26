@@ -1,5 +1,19 @@
 # Terraform Beginner Bootcamp 2023 - Week 1
 
+- [Terraform Beginner Bootcamp 2023 - Week 1](#terraform-beginner-bootcamp-2023---week-1)
+  - [Root Module Structure](#root-module-structure)
+  - [Terraform and Input Variables](#terraform-and-input-variables)
+    - [Terraform Cloud Variables](#terraform-cloud-variables)
+    - [var-file flag](#var-file-flag)
+    - [terraform.tfvars](#terraformtfvars)
+    - [auto.tfvars](#autotfvars)
+    - [Order of terraform variables](#order-of-terraform-variables)
+  - [Dealing With Configuration Drift](#dealing-with-configuration-drift)
+  - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
+    - [Fix Missing Resources with Terraform Import](#fix-missing-resources-with-terraform-import)
+    - [Fix Manual Configuration](#fix-manual-configuration)
+
+
 ## Root Module Structure
 
 Our root module structure is as follows:
@@ -75,3 +89,25 @@ Terraform loads variables in the following order, with later sources taking prec
 - Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
 
 [https://developer.hashicorp.com/terraform/language/values/variables](https://developer.hashicorp.com/terraform/language/values/variables)
+
+## Dealing With Configuration Drift
+
+Configuration drift occurs when your infrastructure's actual state differs from your desired state defined in Terraform.
+
+## What happens if we lose our state file?
+
+Losing your state file often requires manual teardown of your cloud infrastructure. 
+
+While Terraform provides `terraform import` for resource management, not all cloud resources support it. To identify supported resources, consult the Terraform providers' documentation.
+
+[https://developer.hashicorp.com/terraform/cli/import](https://developer.hashicorp.com/terraform/cli/import)
+### Fix Missing Resources with Terraform Import
+
+To manage existing resources not originally under Terraform control, use the `terraform import` command. It integrates them into Terraform, allowing you to track and manage them alongside your configuration.
+
+[https://developer.hashicorp.com/terraform/cli/import](https://developer.hashicorp.com/terraform/cli/import)
+
+### Fix Manual Configuration
+
+If you manually modify Terraform-managed resources, adjust your configuration to match the changes, use `terraform plan` to identify updates, and apply the changes with `terraform apply`. 
+
