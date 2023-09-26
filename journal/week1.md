@@ -12,9 +12,13 @@
   - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
     - [Fix Missing Resources with Terraform Import](#fix-missing-resources-with-terraform-import)
     - [Fix Manual Configuration](#fix-manual-configuration)
-    - [Fix using Terraform Refresh](#fix-using-terraform-refresh)
+  - [Fix using Terraform Refresh](#fix-using-terraform-refresh)
+    - [Fix using Terraform Refresh](#fix-using-terraform-refresh-1)
   - [Terraform Modules](#terraform-modules)
-    - [Modules Sources](#modules-sources)
+    - [Terraform Module Structure](#terraform-module-structure)
+    - [Passing Input Variables](#passing-input-variables)
+    - [Module Sources](#module-sources)
+
 
 
 ## Root Module Structure
@@ -114,12 +118,75 @@ To manage existing resources not originally under Terraform control, use the `te
 
 If you manually modify Terraform-managed resources, adjust your configuration to match the changes, use `terraform plan` to identify updates, and apply the changes with `terraform apply`. 
 
+## Fix using Terraform Refresh
+
+The `terraform refresh` command reads the current settings from all managed remote objects and updates the Terraform state to match.
+
+```sh
+terraform apply -refresh-only -auto-approve
+```
+
 ### Fix using Terraform Refresh
+
+Use the `terraform apply -refresh-only -auto-approve` command to refresh the state of your Terraform-managed resources without making any changes. This can help identify configuration drift and update the state file with the latest information from the real resources.
+
+[https://developer.hashicorp.com/terraform/cli/commands/refresh](https://developer.hashicorp.com/terraform/cli/commands/refresh)
 
 ## Terraform Modules
 
-### Terraform Module Structure
+Modules are containers for multiple resources that are used together. A module consists of a collection of `.tf` and/or `.tf.json` files kept together in a directory.
 
-### Passing Input Variables
+Modules are the main way to package and reuse resource configurations with Terraform.
 
-### Modules Sources
+[https://developer.hashicorp.com/terraform/language/modules](https://developer.hashicorp.com/terraform/language/modules)
+
+### Terraform Module Structure
+
+A complete example of a module following the standard structure is shown below. This example includes all optional elements and is therefore the most complex a module can become:
+
+```
+$ tree complete-module/
+.
+├── README.md
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── ...
+├── modules/
+│   ├── nestedA/
+│   │   ├── README.md
+│   │   ├── variables.tf
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   ├── nestedB/
+│   ├── .../
+├── examples/
+│   ├── exampleA/
+│   │   ├── main.tf
+│   ├── exampleB/
+│   ├── .../
+```
+
+[https://developer.hashicorp.com/terraform/language/modules/develop/structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+
+### Passing Input Variables
+
+When using Terraform modules, you can pass input variables to customize their behavior. Define variables in the calling module and pass them to the module using the `variables block` in your module configuration.
+
+[https://developer.hashicorp.com/terraform/language/values/variables](https://developer.hashicorp.com/terraform/language/values/variables)
+
+### Module Sources
+
+Using the source we can import the module from various places eg:
+
+- locally
+- Github
+- Terraform Registry
+
+```json
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws" 
+}
+```
+
+[https://developer.hashicorp.com/terraform/language/modules/sources](https://developer.hashicorp.com/terraform/language/modules/sources)
