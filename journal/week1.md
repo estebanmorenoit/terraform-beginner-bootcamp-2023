@@ -18,6 +18,10 @@
     - [Terraform Module Structure](#terraform-module-structure)
     - [Passing Input Variables](#passing-input-variables)
     - [Module Sources](#module-sources)
+  - [Working with Files in Terraform](#working-with-files-in-terraform)
+    - [Fileexists function](#fileexists-function)
+    - [Filemd5](#filemd5)
+    - [Path Variable](#path-variable)
 
 
 
@@ -190,3 +194,57 @@ module "terrahouse_aws" {
 ```
 
 [https://developer.hashicorp.com/terraform/language/modules/sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+## Working with Files in Terraform
+
+### Fileexists function
+
+The `fileexists` function in Terraform is used to check if a file exists at the specified path. It returns `true` if the file exists and `false` if it does not. This function is often used in variable validation to ensure that a file specified by a user or in configuration actually exists before proceeding with Terraform operations.
+
+Example of using fileexists in variable validation:
+
+```json
+variable "example_file" {
+  description = "Path to an example file"
+  type        = string
+
+  validation {
+    condition     = fileexists(var.example_file)
+    error_message = "The specified file does not exist."
+  }
+}
+```
+
+[https://developer.hashicorp.com/terraform/language/functions/fileexists](https://developer.hashicorp.com/terraform/language/functions/fileexists)
+
+### Filemd5
+
+The `filemd5` function in Terraform is used to calculate the MD5 hash of the content of a file at the specified path. It is often used to track changes in file content and can be useful for comparing file content in configuration to an existing file.
+
+Example of using `filemd5` to calculate the MD5 hash of a file:
+
+```json
+# Calculate the MD5 hash of a file and assign it to a variable
+variable "file_md5" {
+  type = string
+  default = filemd5("path/to/file")
+}
+```
+
+[https://developer.hashicorp.com/terraform/language/functions/filemd5](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+
+### Path Variable
+
+The `path` variable in Terraform represents the current working directory of the Terraform configuration being applied. It provides a way to reference files and directories relative to the location of the configuration files. This can be useful for specifying file paths or including files located in the same directory as the Terraform configuration.
+
+Example of using the `path` variable to reference a file relative to the configuration directory:
+
+```json
+# Reference a file relative to the configuration directory
+variable "example_file" {
+  type = string
+  default = "${path.module}/relative/path/to/file"
+}
+```
+
+[https://developer.hashicorp.com/terraform/language/expressions/references#path-module](https://developer.hashicorp.com/terraform/language/expressions/references#path-module)
