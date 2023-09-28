@@ -22,8 +22,9 @@
     - [Fileexists function](#fileexists-function)
     - [Filemd5](#filemd5)
     - [Path Variable](#path-variable)
-
-
+  - [Terraform Locals](#terraform-locals)
+  - [Terraform Data Sources](#terraform-data-sources)
+  - [Working with JSON](#working-with-json)
 
 ## Root Module Structure
 
@@ -248,3 +249,39 @@ variable "example_file" {
 ```
 
 [https://developer.hashicorp.com/terraform/language/expressions/references#path-module](https://developer.hashicorp.com/terraform/language/expressions/references#path-module)
+
+## Terraform Locals
+
+A local value assigns a name to an expression, so you can use the name multiple times within a module instead of repeating the expression.
+
+```json
+locals {
+    s3_origin_id = "MyS3Origin"
+}
+```
+
+[https://developer.hashicorp.com/terraform/language/values/locals](https://developer.hashicorp.com/terraform/language/values/locals)
+
+## Terraform Data Sources
+
+Data sources allow Terraform to use information defined outside of Terraform, defined by another separate Terraform configuration, or modified by functions.
+
+```json
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+```
+[https://developer.hashicorp.com/terraform/language/data-sources](https://developer.hashicorp.com/terraform/language/data-sources)
+
+## Working with JSON
+
+The `jsonencode` function in Terraform converts values into JSON format. It's useful for generating JSON data to interact with external systems like APIs. Use it by passing your data as an argument to the function, and it returns a JSON-encoded string. Terraform also provides a `jsonencode` function for decoding JSON data. Make sure to check the documentation for your Terraform version.
+
+```json
+> jsonencode({"hello"="world"})
+{"hello":"world"}
+```
+
+[https://developer.hashicorp.com/terraform/language/functions/jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
