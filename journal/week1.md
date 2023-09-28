@@ -25,6 +25,8 @@
   - [Terraform Locals](#terraform-locals)
   - [Terraform Data Sources](#terraform-data-sources)
   - [Working with JSON](#working-with-json)
+  - [Changing the Lifecycle of Resources](#changing-the-lifecycle-of-resources)
+  - [Terraform Data](#terraform-data)
 
 ## Root Module Structure
 
@@ -285,3 +287,31 @@ The `jsonencode` function in Terraform converts values into JSON format. It's us
 ```
 
 [https://developer.hashicorp.com/terraform/language/functions/jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+## Changing the Lifecycle of Resources
+
+`lifecycle` is a nested block that can appear within a resource block. The `lifecycle` block and its contents are meta-arguments, available for all resource blocks regardless of type.
+
+The arguments available within a `lifecycle` block are `create_before_destroy`, `prevent_destroy`, `ignore_changes`, and `replace_triggered_by`.
+
+```json
+resource "example_database" "test" {
+  lifecycle {
+    replace_triggered_by = [terraform_data.replacement]
+  }
+}
+```
+
+[https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+## Terraform Data
+
+The `terraform_data` implements the standard resource lifecycle, but does not directly take any other actions. You can use the `terraform_data` resource without requiring or configuring a provider.
+
+```json
+resource "terraform_data" "replacement" {
+  input = var.revision
+}
+```
+
+[https://developer.hashicorp.com/terraform/language/resources/terraform-data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
