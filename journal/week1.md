@@ -30,6 +30,7 @@
   - [Provisioners](#provisioners)
     - [Local-exec](#local-exec)
     - [Remote-exec](#remote-exec)
+  - [For Each Expressions](#for-each-expressions)
 
 
 ## Root Module Structure
@@ -369,3 +370,16 @@ resource "aws_instance" "web" {
 ```
 
 [https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
+
+## For Each Expressions
+
+The `for_each` meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
+
+```json
+resource "aws_iam_user" "the-accounts" {
+  for_each = toset( ["Todd", "James", "Alice", "Dottie"] )
+  name     = each.key
+}
+```
+
+[https://developer.hashicorp.com/terraform/language/meta-arguments/for_each](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
