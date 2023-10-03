@@ -211,7 +211,7 @@ The `fileexists` function in Terraform is used to check if a file exists at the 
 
 Example of using fileexists in variable validation:
 
-```json
+```tf
 variable "example_file" {
   description = "Path to an example file"
   type        = string
@@ -231,7 +231,7 @@ The `filemd5` function in Terraform is used to calculate the MD5 hash of the con
 
 Example of using `filemd5` to calculate the MD5 hash of a file:
 
-```json
+```tf
 # Calculate the MD5 hash of a file and assign it to a variable
 variable "file_md5" {
   type = string
@@ -247,7 +247,7 @@ The `path` variable in Terraform represents the current working directory of the
 
 Example of using the `path` variable to reference a file relative to the configuration directory:
 
-```json
+```tf
 # Reference a file relative to the configuration directory
 variable "example_file" {
   type = string
@@ -261,7 +261,7 @@ variable "example_file" {
 
 A local value assigns a name to an expression, so you can use the name multiple times within a module instead of repeating the expression.
 
-```json
+```tf
 locals {
     s3_origin_id = "MyS3Origin"
 }
@@ -273,7 +273,7 @@ locals {
 
 Data sources allow Terraform to use information defined outside of Terraform, defined by another separate Terraform configuration, or modified by functions.
 
-```json
+```tf
 data "aws_caller_identity" "current" {}
 
 output "account_id" {
@@ -286,7 +286,7 @@ output "account_id" {
 
 The `jsonencode` function in Terraform converts values into JSON format. It's useful for generating JSON data to interact with external systems like APIs. Use it by passing your data as an argument to the function, and it returns a JSON-encoded string. Terraform also provides a `jsonencode` function for decoding JSON data. Make sure to check the documentation for your Terraform version.
 
-```json
+```tf
 > jsonencode({"hello"="world"})
 {"hello":"world"}
 ```
@@ -299,7 +299,7 @@ The `jsonencode` function in Terraform converts values into JSON format. It's us
 
 The arguments available within a `lifecycle` block are `create_before_destroy`, `prevent_destroy`, `ignore_changes`, and `replace_triggered_by`.
 
-```json
+```tf
 resource "example_database" "test" {
   lifecycle {
     replace_triggered_by = [terraform_data.replacement]
@@ -313,7 +313,7 @@ resource "example_database" "test" {
 
 The `terraform_data` implements the standard resource lifecycle, but does not directly take any other actions. You can use the `terraform_data` resource without requiring or configuring a provider.
 
-```json
+```tf
 resource "terraform_data" "replacement" {
   input = var.revision
 }
@@ -331,7 +331,7 @@ You can use provisioners to model specific actions on the local machine or on a 
 
 The `local-exec` provisioner invokes a local executable after a resource is created. This invokes a process on the machine running Terraform, not on the resource.
 
-```json
+```tf
 resource "aws_instance" "web" {
   # ...
 
@@ -347,7 +347,7 @@ resource "aws_instance" "web" {
 
 The `remote-exec` provisioner invokes a script on a remote resource after it is created. This can be used to run a configuration management tool, bootstrap into a cluster, etc. The `remote-exec` provisioner requires a connection and supports both `ssh` and `winrm`.
 
-```json
+```tf
 resource "aws_instance" "web" {
   # ...
 
@@ -375,7 +375,7 @@ resource "aws_instance" "web" {
 
 The `for_each` meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
 
-```json
+```tf
 resource "aws_iam_user" "the-accounts" {
   for_each = toset( ["Todd", "James", "Alice", "Dottie"] )
   name     = each.key
