@@ -56,12 +56,14 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-- [About The Project](#about-the-project)
-  - [Built With](#built-with)
-- [Weekly Journals](#weekly-journals)
-- [Roadmap](#roadmap)
-- [License](#license)
-- [Contact](#contact)
+- [Terraform Beginner Bootcamp 2023](#terraform-beginner-bootcamp-2023)
+  - [Table of Contents](#table-of-contents)
+  - [About The Project](#about-the-project)
+    - [Built With](#built-with)
+  - [Weekly Journals](#weekly-journals)
+  - [Roadmap](#roadmap)
+  - [License](#license)
+  - [Contact](#contact)
 
 
 <!-- ABOUT THE PROJECT -->
@@ -96,7 +98,7 @@ The "Terraform Beginner Bootcamp 2023" is a 2-week intensive program that offers
 ## Roadmap
 
 - [x] Week 0
-- [ ] Week 1
+- [x] Week 1
 - [ ] Week 2
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
