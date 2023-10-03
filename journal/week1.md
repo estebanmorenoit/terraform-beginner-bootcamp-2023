@@ -195,7 +195,7 @@ Using the source we can import the module from various places eg:
 - Github
 - Terraform Registry
 
-```json
+```tf
 module "terrahouse_aws" {
   source = "./modules/terrahouse_aws" 
 }
