@@ -8,7 +8,7 @@ Bundler is a package manager for ruby. It is the primary way to install ruby pac
 
 ### Install Gems
 
-You need to create a Gemfile and define your gems n that file 
+You need to create a Gemfile and define your gems in that file 
 
 ```rb
 source "https://rubygems.org"
