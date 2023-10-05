@@ -1,4 +1,4 @@
-// package main: Declares the package name. 
+tf init// package main: Declares the package name. 
 // The main package is special in Go, it's where the execution of the program starts.
 package main
 
