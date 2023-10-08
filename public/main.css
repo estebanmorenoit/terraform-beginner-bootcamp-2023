@@ -1,0 +1,171 @@
+/* Reset some default styles */
+body, h1, h2, ul, ol, li, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f8f8;
+    line-height: 1.6;
+    background-image: url('./assets/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Header styling */
+header {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Header title */
+header h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+/* Main content styling */
+main {
+    display: flex;
+    flex-direction: column; /* Change to a column layout */
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+/* Tiramisu image section styling */
+#tiramisu-image {
+    text-align: center;
+    padding: 20px;
+}
+
+#tiramisu-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Definition section styling */
+#definition {
+    flex: 1; /* Adjust the flex property to make it the same size */
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Add margin to separate the sections */
+}
+
+#definition h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#definition p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Ingredients section styling */
+#ingredients {
+    flex: 1; /* Adjust the flex property to make it the same size */
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Add margin to separate the sections */
+}
+
+#ingredients h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#ingredients ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+#ingredients ul li {
+    font-size: 18px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Instructions section styling */
+#instructions {
+    flex: 1; /* Adjust the flex property to make it the same size */
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Add margin to separate the sections */
+}
+
+#instructions h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#instructions ol {
+    list-style: decimal;
+    padding-left: 20px;
+}
+
+#instructions ol li {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Closing section styling */
+#closing {
+    flex: 1; /* Adjust the flex property to make it the same size */
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Add margin to separate the sections */
+}
+
+#closing h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#closing p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    #definition,
+    #ingredients,
+    #instructions,
+    #closing {
+        flex: auto;
+        width: 100%;
+        margin-right: 0; /* Remove margin between sections on smaller screens */
+    }
+
+    #definition,
+    #ingredients,
+    #instructions,
+    #closing {
+        margin-bottom: 20px; /* Add margin between sections on smaller screens */
+    }
+}
