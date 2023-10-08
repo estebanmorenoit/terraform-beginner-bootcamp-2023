@@ -5,13 +5,13 @@ terraform {
       version = "1.0.0"
     }
   }
-  # cloud {
-  #   organization = "estebanmorenoit"
+  cloud {
+    organization = "estebanmorenoit"
 
-  #   workspaces {
-  #     name = "terra-house-1"
-  #   }
-  # }
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
 }
 
 provider "terratowns" {
@@ -20,23 +20,37 @@ provider "terratowns" {
   token     = var.terratowns_access_token
 }
 
-module "terrahouse_aws" {
-  source              = "./modules/terrahouse_aws"
-  user_uuid           = var.teacherseat_user_uuid
-  bucket_name         = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version     = var.content_version
-  assets_path         = var.assets_path
+module "terrahome_hosting" {
+  source          = "./modules/terrahome_aws"
+  user_uuid       = var.teacherseat_user_uuid
+  public_path     = var.terrahome.public_path
+  content_version = var.terrahome.content_version
 }
 
 resource "terratowns_home" "home" {
-  name            = "Esteban Moreno - Test"
+  name            = "Tiramisu Recipe"
   description     = <<DESCRIPTION
-Testing the deployment
+Indulge in the classic Italian Tiramisu recipe – a delightful dessert made with layers of coffee-soaked ladyfingers and a creamy mascarpone cheese mixture. This rich and flavorful treat is topped with cocoa powder and optional chocolate shavings, perfect for satisfying your sweet cravings.
 DESCRIPTION
-  domain_name     = module.terrahouse_aws.clodfront_url
-  # domain_name     = "3fafa3.cloudfront.net"
-  town            = "missingo"
-  content_version = var.content_version
+  domain_name     = module.terrahome_hosting.domain_name
+  town            = "cooker-cove"
+  content_version = var.terrahome.content_version
 }
+
+module "terrahome_test_hosting" {
+  source          = "./modules/terrahome_aws"
+  user_uuid       = var.teacherseat_user_uuid
+  public_path     = var.terrahome.public_path
+  content_version = var.terrahome.content_version
+}
+
+resource "terratowns_home" "test" {
+  name            = "Tiramisu Recipe"
+  description     = <<DESCRIPTION
+Indulge in the classic Italian Tiramisu recipe – a delightful dessert made with layers of coffee-soaked ladyfingers and a creamy mascarpone cheese mixture. This rich and flavorful treat is topped with cocoa powder and optional chocolate shavings, perfect for satisfying your sweet cravings.
+DESCRIPTION
+  domain_name     = module.terrahome_test_hosting.domain_name
+  town            = "missingo"
+  content_version = var.terrahome.content_version
+}
+
