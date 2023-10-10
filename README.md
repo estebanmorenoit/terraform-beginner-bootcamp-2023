@@ -99,7 +99,7 @@ The "Terraform Beginner Bootcamp 2023" is a 2-week intensive program that offers
 
 - [x] Week 0
 - [x] Week 1
-- [ ] Week 2
+- [x] Week 2
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
