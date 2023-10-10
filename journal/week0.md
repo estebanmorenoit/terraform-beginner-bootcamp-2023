@@ -1,32 +1,39 @@
 # Terraform Beginner Bootcamp 2023 - Week 0 
 
-- [Semantic Versioning](#semantic-versioning)
-- [Install the Terraform CLI](#install-the-terraform-cli)
-  * [Considerations with the Terraform CLI changes](#considerations-with-the-terraform-cli-changes)
-  * [Considerations for Linux Distribution](#considerations-for-linux-distribution)
-  * [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
-    + [Shebang Considerations](#shebang-considerations)
-    + [Execution Considerations](#execution-considerations)
-    + [Linux Permissions Considerations](#linux-permissions-considerations)
-- [Gitpod Lifecycle](#gitpod-lifecycle)
-- [Working Env Vars](#working-env-vars)
-  * [env command](#env-command)
-  * [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
-  * [Printing Vars](#printing-vars)
-  * [Scoping of Env Vars](#scoping-of-env-vars)
-  * [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
-- [AWS CLI Installation](#aws-cli-installation)
-- [Terraform Basics](#terraform-basics)
-  * [Terraform Registry](#terraform-registry)
-  * [Terraform Console](#terraform-console)
-    + [Terraform Init](#terraform-init)
-    + [Terraform Plan](#terraform-plan)
-    + [Terraform Apply](#terraform-apply)
-    + [Terraform Destroy](#terraform-destroy)
-    + [Terraform Lock Files](#terraform-lock-files)
-    + [Terraform State Files](#terraform-state-files)
-    + [Terraform Directory](#terraform-directory)
-- [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
+![Terraform Beginner Bootcamp 2023 - Week 0](../images/week0.jpg)
+
+- [Terraform Beginner Bootcamp 2023 - Week 0](#terraform-beginner-bootcamp-2023---week-0)
+  - [Semantic Versioning](#semantic-versioning)
+  - [GitHub Basics - How to create a branch, tag the branch and create a pull request to merge the branch](#github-basics---how-to-create-a-branch-tag-the-branch-and-create-a-pull-request-to-merge-the-branch)
+    - [Creating a Branch Documentation](#creating-a-branch-documentation)
+    - [Pull Request](#pull-request)
+    - [Tag a Branch](#tag-a-branch)
+  - [Install the Terraform CLI](#install-the-terraform-cli)
+    - [Considerations with the Terraform CLI changes](#considerations-with-the-terraform-cli-changes)
+    - [Considerations for Linux Distribution](#considerations-for-linux-distribution)
+  - [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
+    - [Shebang Considerations](#shebang-considerations)
+    - [Execution Considerations](#execution-considerations)
+    - [Linux Permissions Considerations](#linux-permissions-considerations)
+  - [Gitpod Lifecycle](#gitpod-lifecycle)
+  - [Working Env Vars](#working-env-vars)
+    - [env command](#env-command)
+    - [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
+    - [Printing Env Vars](#printing-env-vars)
+    - [Scoping of Env Vars](#scoping-of-env-vars)
+    - [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
+  - [AWS CLI Installation](#aws-cli-installation)
+  - [Terraform Basics](#terraform-basics)
+    - [Terraform Registry](#terraform-registry)
+    - [Terraform Console](#terraform-console)
+      - [Terraform Init](#terraform-init)
+      - [Terraform Plan](#terraform-plan)
+      - [Terraform Apply](#terraform-apply)
+      - [Terraform Destroy](#terraform-destroy)
+      - [Terraform Lock Files](#terraform-lock-files)
+      - [Terraform State](#terraform-state)
+      - [Terraform Directory](#terraform-directory)
+  - [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
 
 ## Semantic Versioning
 
@@ -45,6 +52,71 @@ Additional labels for pre-release and build metadata are available as extensions
 This project is going utilize semantic versioning for its tagging - More info on:
 [semver.org](https://semver.org/)
 
+## GitHub Basics - How to create a branch, tag the branch and create a pull request to merge the branch
+
+GitHub offers essential features for collaborative software development, including creating branches, tagging commits, and initiating pull requests.
+
+### Creating a Branch Documentation
+
+Follow these steps to create a new branch for implementing a new feature in your GitHub project:
+
+1. **Open an Issue**: Begin by opening a new issue to describe the feature you want to implement. This helps in tracking progress and collaboration.
+
+2. **Create a Branch**: Find the issue you created and use the platform's interface to create a new branch. Name it descriptively, e.g., `feature/new-feature-branch`.
+
+3. **Checkout in VS Code**: Open your project in VS Code and use the integrated terminal to checkout the new branch:
+
+```sh
+   git checkout <branch-name>
+```
+
+After making your desired changes in VS Code, commit them to the branch using the below commands:
+
+```sh
+git add .
+git commit -m "Add a concise commit message"
+```
+
+### Pull Request
+
+Once you've completed your work on a new feature branch, follow these steps to create a pull request and merge it into the main branch:
+
+1. **Create a Pull Request**: Navigate to your project's repository on GitHub and open the main page of your feature branch. Click on the "New Pull Request" button.
+
+2. **Review Changes**: Ensure that the changes you made in your feature branch are shown in the pull request. Provide a concise title and description for your pull request, outlining the purpose of the changes.
+
+3. **Squash and Merge**: If necessary, choose the "Squash and Merge" option when merging your pull request. This combines your individual commits into a single commit for cleaner version history.
+
+4. **Check Out the Main Branch in VS Code**: After the pull request has been merged, it's a good practice to check out the main branch in VS Code to ensure you have the latest changes. Use the integrated terminal:
+
+   ```shell
+   git checkout main
+   ``` 
+5. **Git Pull**: To update your local main branch with the changes from the remote repository, run:
+   
+   ```shell
+   git pull
+   ``` 
+This completes the process of creating a pull request, merging it into the main branch, and updating your local repository with the latest changes.
+
+### Tag a Branch
+
+To tag a branch with a version number and push the changes to GitHub, follow these steps:
+
+1. **Tag the Branch**: In your local repository, use the following command to tag the branch with a version number (replace `x.x.x` with the desired version number):
+
+   ```sh
+   git tag x.x.x
+   ```
+2. *Push the Tags*: To push the tags to your GitHub repository, run the following command:
+
+    ```sh
+    git push --tags
+    ```
+This command ensures that the tags associated with the branch are pushed to the remote repository on GitHub.
+
+Tagging a branch is a common practice to mark specific releases or milestones in your project.
+
 ## Install the Terraform CLI
 
 ### Considerations with the Terraform CLI changes
@@ -60,7 +132,7 @@ This project is built against Ubuntu. To check the Linux Distribution you are wo
 [How To Check OS Version in Linux](
 https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/)
 
-***Sample output:***
+**Sample output:**
 
 ```sh
 $ cat /etc/os-release
@@ -342,3 +414,4 @@ Provide the following code (replace your token in the file):
 ```
 
 We have automated this workaround with the following bash script [bin/generate_tfrc_credentials.sh](bin/generate_tfrc_credentials.sh)
+
